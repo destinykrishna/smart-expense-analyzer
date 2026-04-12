@@ -1,0 +1,8 @@
+node_modules/
+.env
+uploads/
+.DS_Store
+doc_text.txt
+extract_docx.js
+temp_docx/
+*.zip
