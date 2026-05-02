@@ -11,7 +11,7 @@ add_exception_handlers(app)
 
 @app.middleware("http")
 async def verify_internal_key(request: Request, call_next):
-    if request.url.path != "/health":
+    if request.url.path not in ["/health", "/docs", "/openapi.json", "/redoc"]:
         internal_key = request.headers.get("X-Internal-Key")
         if internal_key != settings.ML_INTERNAL_SECRET:
             logger.warning(f"Unauthorized access attempt. Provided key: {internal_key}")
